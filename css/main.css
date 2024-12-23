@@ -457,3 +457,43 @@ h2 ~ p {
     margin-top: 3em;
     padding-top: 2em;
 }
+
+/* MEDIA QUERY */
+@media (max-width: 800px) {
+    html {
+        box-shadow: none;
+        padding: 0;
+    }
+
+    /* HEADER STYLES */
+    .header-nav {
+        padding: 2vh 1em 0 0;
+    }
+    .header-nav > li {
+        margin-left: 0.25em;
+    }
+    .header-nav > li ~ li {
+        padding-left: 0.25em;
+    }
+    .header-logo {
+        left: auto;
+    }
+
+    /* HOME STYLES */
+    .home-callout {
+        flex-direction: column;
+    }
+    .callout-copy {
+        flex: 1;
+    }
+    .bio-box {
+        float: none;
+        font-size: 1.3rem;
+        width: auto;
+    }
+
+    /* BLOG STYLES */
+    .post-aside {
+        display: none;
+    }
+}
