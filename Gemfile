@@ -1,3 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'jekyll', '4.3.2'
+gem 'sassc', '~> 2.1'
+gem 'jekyll', '4.3.4'
+
