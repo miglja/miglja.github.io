@@ -8,17 +8,17 @@ function activateGallery() {
 
     let mainImage = document.querySelector("#gallery-photo img");
 
-    // Image info to be updated
-    let galleryInfo = document.querySelector("#gallery-info");
-    let title = galleryInfo.querySelector(".title");
-    let description = galleryInfo.querySelector(".description");
     thumbnails.forEach(function(thumbnail) {
+        // Preload large images.
+        let newImageSrc = thumbnail.dataset.largeVersion;
+        let largeVersion = new Image();
+        largeVersion.src = newImageSrc;
+        let newImageAlt = thumbnail.dataset.alt;
+
         thumbnail.addEventListener("click", function() {
-            // set clicked image as main image.
-            let newImageSrc = thumbnail.dataset.largeVersion;
-            let newImageAlt = thumbnail.dataset.alt;
+            // Set clicked image as display image
             mainImage.setAttribute("src", newImageSrc);
-            mainImage.setAttribute("alt", newImageAlt)
+            mainImage.setAttribute("alt", newImageAlt);
 
             //Change which image is current.
             let currentClass = "current";
@@ -28,6 +28,10 @@ function activateGallery() {
             thumbnail.parentNode
                     .classList
                     .add(currentClass);
+
+            let galleryInfo = document.querySelector("#gallery-info");
+            let title = galleryInfo.querySelector(".title");
+            let description = galleryInfo.querySelector(".description");
 
             // Update image info
             title.innerHTML = thumbnail.dataset.title;
